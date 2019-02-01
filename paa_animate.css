@@ -20,16 +20,19 @@
 
 
 /* Transition Effects */
+/* The navigation hypertext is white with relative positioning and changes colors over .5 seconds */
 nav#gameLinks a {
     position: relative;
     color: white;
     transition: color .5s;
 }
 
+/* The links, when hovered over, changes to an orange color */
 nav#gameLinks a:hover {
     color: rgb(255, 194, 99);
 }
 
+/* The hypertext, within the navigation has a line appear below it that is a gradient. The line appears left to right, over .5 seconds */
 nav#gameLinks a::after {
     content: "";
     position: absolute;
@@ -43,16 +46,19 @@ nav#gameLinks a::after {
     transition: opacity .5s, width .5s;
 }
 
+/* The links at the top go the width of their list elements */
 nav#gameLinks a:hover::after {
     opacity: 1;
     width: 100%;
 }
 
 /* Sprite Styles */
+/* The sprite divs use absolute positioning */
 div.sprite {
     position: absolute;
 }
 
+/* The bat appears within the game, the styles position it so that it appears off the game, but flies in from the left. The bat goes from left to right*/
 div#bat {
     width: 40px;
     height: 50px;
@@ -62,6 +68,7 @@ div#bat {
     animation: playSprite 2s steps(39) infinite, flyRight 8s linear infinite;
 }
 
+/* The butterfly behaves similar to the bat, except that the butterfly stays in the center of the page, and does not goes up and down */
 div#butterfly {
     width: 35px;
     height: 35px;
@@ -71,6 +78,7 @@ div#butterfly {
     animation: playSprite 1s 3s steps(33) infinite, flyRight 6s cubic-bezier(0, 1, 0.73, 0) infinite;
 }
 
+/* The fox jumps up and down, and unlike the other creatures, it appears in 'game' from the start */
 div#fox {
     width: 280px;
     height: 260px;
@@ -81,12 +89,14 @@ div#fox {
 }
 
 /* Animation Styles */
+/* The playSprite animation makes sure the creatures are placed correctly */
 @keyframes playSprite {
     100% {
         background-position: right center;
     }
 }
 
+/* The animation causes the images to move up and down (or at least the illusion of it. */
 @keyframes flyRight {
     25% {
         top: 150px;
